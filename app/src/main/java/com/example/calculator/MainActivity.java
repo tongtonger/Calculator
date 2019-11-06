@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private EditText editText;
 
-    boolean clear_flag;//清空标识
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btn_0 = (Button) findViewById(R.id.num0);
         btn_1 = (Button) findViewById(R.id.num1);
-        btn_2 = (Button) findViewById(R.id.num1);
-        btn_3 = (Button) findViewById(R.id.num1);
+        btn_2 = (Button) findViewById(R.id.num2);
+        btn_3 = (Button) findViewById(R.id.num3);
         btn_4 = (Button) findViewById(R.id.num4);
         btn_5 = (Button) findViewById(R.id.num5);
         btn_6 = (Button) findViewById(R.id.num6);
@@ -49,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_point = (Button) findViewById(R.id.point);
         btn_clear = (Button) findViewById(R.id.clear);
         btn_del = (Button) findViewById(R.id.delete);
+
         btn_add = (Button) findViewById(R.id.add);
         btn_sub = (Button) findViewById(R.id.charjian);
         btn_multply = (Button) findViewById(R.id.cheng);
@@ -91,23 +90,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.num8:
             case R.id.num9:
             case R.id.point:
-                if(clear_flag){
-                    clear_flag = false;
-                    editText.setText("");
-                }
-                editText.setText(input + ((Button)v).getText());
-                break;
             case R.id.add:
             case R.id.charjian:
             case R.id.cheng:
             case R.id.chu:
-                if(clear_flag){
-                    clear_flag = false;
-                    input = "";
-                    editText.setText("");
+                editText.setText(input + ((Button)v).getText());
+                break;
+            case R.id.clear:
+                editText.setText("");
+                break;
+            case R.id.delete:
+                if(input != null || !input.equals("")) {
+                    editText.setText(input.substring(0, input.length() - 1));
                 }
-                editText.setText(input + " " + ((Button)v).getText() + " ");
+                break;
+            case R.id.eq:
+                editText.setText(getResult());
                 break;
         }
+    }
+
+    public int getResult() {
+        Expression expression=new Expression();
+
+        StringBuffer postfix=expression.toPostfix(editText.getText().toString());//传入中缀表达式并得到后缀表达式
+        int result=expression.ToValue(postfix);//得到计算结果result
+        return  result;
     }
 }
