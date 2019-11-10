@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="C"
-            android:textSize="25sp" />
+        android:textSize="25sp" />
 
         <Button
             android:id="@+id/chu"
@@ -154,7 +154,7 @@
                 android:text="1"
                 android:textSize="25sp" />
             <Button
-                android:id="@+id/change"
+                android:id="@+id/function"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
