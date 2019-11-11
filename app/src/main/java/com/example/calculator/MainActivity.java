@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btn_multply;//*按钮
     private Button btn_divide;//÷号按钮
     private Button btn_equal;//=按钮
+
     private Button btn_sin;
     private Button btn_cos;
     private Button btn_tan;
@@ -69,6 +71,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_tan=(Button) findViewById(R.id.tan);
         btn_lg=(Button) findViewById(R.id.log);
         btn_ln=(Button) findViewById(R.id.ln);
+        Button bt_PI=(Button)findViewById(R.id.PI);
+        Button bt_e=(Button)findViewById(R.id.e);
+        Button bt_mi=(Button)findViewById(R.id.mi);
+        Button bt_kuohao_left=(Button)findViewById(R.id.kuohao_left);
+        Button bt_kuohao_right=(Button)findViewById(R.id.kuohao_right);
+
 
         btn_0.setOnClickListener(this);
         btn_1.setOnClickListener(this);
@@ -89,11 +97,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_divide.setOnClickListener(this);
         btn_equal.setOnClickListener(this);
         btn_function.setOnClickListener(this);
-        btn_sin.setOnClickListener(this);
-        btn_cos.setOnClickListener(this);
-        btn_tan.setOnClickListener(this);
-        btn_lg.setOnClickListener(this);
-        btn_ln.setOnClickListener(this);
+
+
+        Configuration mConfiguration = this.getResources().getConfiguration();
+        int ori = mConfiguration.orientation;
+
+        if(ori == mConfiguration.ORIENTATION_LANDSCAPE) {
+            btn_sin.setOnClickListener(this);
+            btn_cos.setOnClickListener(this);
+            btn_tan.setOnClickListener(this);
+            btn_lg.setOnClickListener(this);
+            btn_ln.setOnClickListener(this);
+            bt_PI.setOnClickListener(this);
+            bt_e.setOnClickListener(this);
+            bt_mi.setOnClickListener(this);
+            bt_kuohao_left.setOnClickListener(this);
+            bt_kuohao_right.setOnClickListener(this);
+        }
 
     }
 
@@ -116,10 +136,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.charjian:
             case R.id.cheng:
             case R.id.chu:
+
+            case R.id.sin:
             case R.id.cos:
             case R.id.tan:
             case R.id.log:
             case R.id.ln:
+            case R.id.PI:
+            case R.id.e:
+            case R.id.mi:
+            case R.id.kuohao_left:
+            case R.id.kuohao_right:
                 editText.setText(input + ((Button)v).getText());
                 break;
             case R.id.clear:
