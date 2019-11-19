@@ -5,15 +5,19 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VolumeChange_Activity"></activity>
+        <activity android:name=".UnitConverter_Activity"></activity>
+        <activity android:name=".VolumeChange_Activity" />
         <activity android:name=".ScaleChange_Activity" />
         <activity android:name=".LengthChange_Activity" />
-        <activity android:name=".Main2Activity" android:label="功能切换"/>
-        <activity android:name=".MainActivity" android:label="Calculator">
+        <activity
+            android:name=".Main2Activity"
+            android:label="功能切换" />
+        <activity
+            android:name=".MainActivity"
+            android:label="Calculator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

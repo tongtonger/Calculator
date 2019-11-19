@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -153,7 +154,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 editText.setText("");
                 break;
             case R.id.delete:
-                if(input != null || !input.equals("")) {
+               // if(input != null || !input.equals("")) {
+                if(!input.equals("") && input.length() > 0){
+                    Log.e("delete","haha");
                     editText.setText(input.substring(0, input.length() - 1));
                 }
                 break;
