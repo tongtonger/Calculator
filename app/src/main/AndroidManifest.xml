@@ -8,7 +8,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UnitConverter_Activity"></activity>
         <activity android:name=".VolumeChange_Activity" />
         <activity android:name=".ScaleChange_Activity" />
         <activity android:name=".LengthChange_Activity" />

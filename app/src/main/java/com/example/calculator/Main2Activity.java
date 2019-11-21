@@ -38,15 +38,19 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
             case R.id.changLength:
                 Intent intent1=new Intent(Main2Activity.this,LengthChange_Activity.class);
                 startActivity(intent1);
+                break;
             case R.id.changVolume:
                 Intent intent2=new Intent(Main2Activity.this,VolumeChange_Activity.class);
                 startActivity(intent2);
+                break;
             case R.id.changScale:
                 Intent intent3=new Intent(Main2Activity.this,ScaleChange_Activity.class);
                 startActivity(intent3);
+                break;
             case  R.id.ExchangeRate:
+                break;
             case R.id.Data:
-
+                break;
         }
     }
 }
